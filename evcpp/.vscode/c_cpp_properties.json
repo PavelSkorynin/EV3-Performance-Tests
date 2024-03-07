@@ -1,0 +1,33 @@
+{
+  "configurations": [
+    {
+      "name": "win32",
+      "includePath": [
+        "c:\\Users\\Pavel\\.vscode\\extensions\\anarcom.evcpp-0.0.10/../tools/toolchain/bin/../lib/gcc/arm-evcpp-linux-gnueabi/8.3.0/include",
+        "c:\\Users\\Pavel\\.vscode\\extensions\\anarcom.evcpp-0.0.10/../tools/toolchain/bin/../lib/gcc/arm-evcpp-linux-gnueabi/8.3.0/include-fixed",
+        "c:\\Users\\Pavel\\.vscode\\extensions\\anarcom.evcpp-0.0.10/../tools/toolchain/bin/../lib/gcc/arm-evcpp-linux-gnueabi/8.3.0/../../../../arm-evcpp-linux-gnueabi/include",
+        "c:\\Users\\Pavel\\.vscode\\extensions\\anarcom.evcpp-0.0.10/../tools/toolchain/bin/../lib/gcc/arm-evcpp-linux-gnueabi/8.3.0/../../../../arm-evcpp-linux-gnueabi/include/c++/8.3.0",
+        "c:\\Users\\Pavel\\.vscode\\extensions\\anarcom.evcpp-0.0.10/../tools/toolchain/bin/../lib/gcc/arm-evcpp-linux-gnueabi/8.3.0/../../../../arm-evcpp-linux-gnueabi/include/c++/8.3.0/backward",
+        "c:\\Users\\Pavel\\.vscode\\extensions\\anarcom.evcpp-0.0.10/../tools/include"
+      ],
+      "browse": {
+        "path": [
+          "c:\\Users\\Pavel\\.vscode\\extensions\\anarcom.evcpp-0.0.10/../tools/toolchain/bin/../lib/gcc/arm-evcpp-linux-gnueabi/8.3.0/include",
+          "c:\\Users\\Pavel\\.vscode\\extensions\\anarcom.evcpp-0.0.10/../tools/toolchain/bin/../lib/gcc/arm-evcpp-linux-gnueabi/8.3.0/include-fixed",
+          "c:\\Users\\Pavel\\.vscode\\extensions\\anarcom.evcpp-0.0.10/../tools/toolchain/bin/../lib/gcc/arm-evcpp-linux-gnueabi/8.3.0/../../../../arm-evcpp-linux-gnueabi/include",
+          "c:\\Users\\Pavel\\.vscode\\extensions\\anarcom.evcpp-0.0.10/../tools/toolchain/bin/../lib/gcc/arm-evcpp-linux-gnueabi/8.3.0/../../../../arm-evcpp-linux-gnueabi/include/c++/8.3.0",
+          "c:\\Users\\Pavel\\.vscode\\extensions\\anarcom.evcpp-0.0.10/../tools/toolchain/bin/../lib/gcc/arm-evcpp-linux-gnueabi/8.3.0/../../../../arm-evcpp-linux-gnueabi/include/c++/8.3.0/backward",
+          "c:\\Users\\Pavel\\.vscode\\extensions\\anarcom.evcpp-0.0.10/../tools/include"
+        ],
+        "limitSymbolsToIncludedHeaders": true,
+        "databaseFilename": ""
+      },
+      "defines": [],
+      "intelliSenseMode": "clang-x64",
+      "compilerPath": "c:\\Users\\Pavel\\.vscode\\extensions\\anarcom.evcpp-0.0.10/../tools/toolchain/bin/arm-evcpp-linux-gnueabi-g++.exe -mcpu=cortex-m4 -mthumb -mfloat-abi=hard",
+      "cStandard": "c99",
+      "cppStandard": "c++11"
+    }
+  ],
+  "version": 4
+}

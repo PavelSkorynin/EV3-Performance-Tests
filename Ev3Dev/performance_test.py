@@ -11,7 +11,7 @@ os.system('setfont Lat15-Terminus12x6')
 s = Sensor(address='in1', driver_name='lego-ev3-color')
 s.mode = 'REF-RAW'
 
-print('Performance test')
+print('Performance test ev3dev')
 
 # test idling
 start_time = time.time()
@@ -28,7 +28,6 @@ sum = 0
 while (time.time() - start_time) < 5:
     count += 1
     sum += s.value()
-end_time = time.time()
 print(str(count / 5))
 
 # test reading unique values from a sensor
@@ -42,7 +41,6 @@ while (time.time() - start_time) < 5:
     if value != prevValue:
         prevValue = value
         unique += 1
-end_time = time.time()
 print(str(count / 5) + " " + str(unique / 5))
 
 time.sleep(5)

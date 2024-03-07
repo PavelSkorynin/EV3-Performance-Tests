@@ -2,7 +2,7 @@ folder "prjs" "PerformanceTest"
 
 Sensor.SetMode(1, 3)
 LCD.Clear()
-LCD.Write(0, 0, "Performance Test")
+LCD.Write(0, 0, "Performance Test Clev3r")
 
 ' test idling
 Time.Reset1()
@@ -22,8 +22,7 @@ v2 = 0
 v3 = 0
 While Time.Get1() < 5000
   count += 1
-  Sensor1.Raw3(v1, v2, v3)
-  sum += v1
+  sum += Sensor1.Raw1()
 EndWhile
 LCD.Write(0, 20, count / 5)
 
@@ -33,11 +32,9 @@ count = 0
 unique = 0
 v1 = 0
 v1Prev = 0
-v2 = 0
-v3 = 0
 While Time.Get1() < 5000
   count += 1
-  Sensor1.Raw3(v1, v2, v3)
+  v1 = Sensor1.Raw1()
   If v1 <> v1Prev Then
     unique += 1
     v1Prev = v1

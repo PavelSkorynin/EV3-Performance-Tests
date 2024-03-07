@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "EvCpp compile",
+      "command": "c:\\Users\\Pavel\\.vscode\\extensions\\anarcom.evcpp-0.0.10/../tools/toolchain/bin/make.exe",
+      "args": [
+        "all"
+      ],
+      "options": {},
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
