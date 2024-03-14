@@ -5,7 +5,7 @@
             "name": "Download and Run performance_test.py",
             "type": "ev3devBrowser",
             "request": "launch",
-            "program": "/home/robot/${workspaceFolderBasename}/performance_test.py"
+            "program": "/home/robot/${workspaceFolderBasename}/performance_test_ev3dev2.py"
         },
         {
             "name": "Download and Run Current File",
