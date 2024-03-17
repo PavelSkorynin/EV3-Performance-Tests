@@ -20,7 +20,7 @@
  */
 extern int32_t default_menu_font_width;
 extern int32_t default_menu_font_height;
-#define MENU_FONT (EV3_FONT_MEDIUM)
+#define MENU_FONT (EV3_FONT_SMALL)
 #define MENU_FONT_WIDTH (default_menu_font_width)
 #define MENU_FONT_HEIGHT (default_menu_font_height)
 
