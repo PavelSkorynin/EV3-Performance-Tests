@@ -1,45 +1,112 @@
 folder "prjs" "PerformanceTest"
 
-Sensor.SetMode(1, 3)
 LCD.Clear()
-LCD.Write(0, 0, "Performance Test Clev3r")
+LCD.Write(0, 0, "Clev3r Performance Test")
 
-' test idling
-Time.Reset1()
-count = 0
-While count < 100000
-  count += 1
-EndWhile
-t = Time.Get1()
-LCD.Write(0, 10, count * 1000 / t)
+lineNumber = 1
 
-' test reading a sensor
-Time.Reset1()
-count = 0
-sum = 0
-v1 = 0
-v2 = 0
-v3 = 0
-While Time.Get1() < 5000
-  count += 1
-  sum += Sensor1.Raw1()
-EndWhile
-LCD.Write(0, 20, count / 5)
+'TestIdling()
+'TestReadingSensor()
+TestPController4_2()
 
-' test reading unique values from a sensor
-Time.Reset1()
-count = 0
-unique = 0
-v1 = 0
-v1Prev = 0
-While Time.Get1() < 5000
-  count += 1
-  v1 = Sensor1.Raw1()
-  If v1 <> v1Prev Then
-    unique += 1
-    v1Prev = v1
-  EndIf
-EndWhile
-LCD.Write(0, 30, (count / 5) + " " + (unique / 5))
+Program.Delay(10000)
 
-Program.Delay(5000)
+
+Function TestIdling()
+  Time.Reset1()
+  count = 0
+  While count < 100000
+    count += 1
+  EndWhile
+  t = Time.Get1()
+  LCD.Write(0, @lineNumber * 10, "Idling: " + count * 1000 / t)
+  @lineNumber += 1
+EndFunction
+
+Function TestReadingSensor()
+  Sensor.SetMode(1, 0)
+  Time.Reset1()
+  count = 0
+  unique = 0
+  prevValue = 0
+  While Time.Get1() < 5000
+    count += 1
+    value = Sensor1.Raw1()
+    If value <> prevValue Then
+      unique += 1
+      prevValue = value
+    EndIf
+  EndWhile
+  LCD.Write(0, @lineNumber * 10, "Sens read: " + (count / 5) + " " + (unique / 5))
+  @lineNumber += 1
+EndFunction
+
+Function TestPController4_2()
+  LCD.Write(0, @lineNumber * 10, "Config...")
+  Sensor.SetMode(1, 0)
+  Sensor.SetMode(2, 0)
+  Sensor.SetMode(3, 0)
+  Sensor.SetMode(4, 0)
+  MotorB.IsLarge()
+  MotorC.IsLarge()
+  MotorB.StartPower(100)
+  MotorC.StartPower(100)
+  Program.Delay(1000)
+  LCD.Write(0, @lineNumber * 10, "Testing...")
+  Time.Reset1()
+  count = 0
+  unique1 = 0
+  unique2 = 0
+  unique3 = 0
+  unique4 = 0
+  uniqueB = 0
+  uniqueC = 0
+  prevValue1 = 0
+  prevValue2 = 0
+  prevValue3 = 0
+  prevValue4 = 0
+  prevValueB = 0
+  prevValueC = 0
+  While Time.Get1() < 5000
+    count += 1
+    value1 = Sensor1.Raw1()
+    If value1 <> prevValue1 Then
+      unique1 += 1
+      prevValue1 = value1
+    EndIf
+    value2 = Sensor2.Raw1()
+    If value2 <> prevValue2 Then
+      unique2 += 1
+      prevValue2 = value2
+    EndIf
+    value3 = Sensor3.Raw1()
+    If value3 <> prevValue3 Then
+      unique3 += 1
+      prevValue3 = value3
+    EndIf
+    value4 = Sensor4.Raw1()
+    If value4 <> prevValue4 Then
+      unique4 += 1
+      prevValue4 = value4
+    EndIf
+    valueB = MotorB.GetTacho()
+    If valueB <> prevValueB Then
+      uniqueB += 1
+      prevValueB = valueB
+    EndIf
+    valueC = MotorC.GetTacho()
+    If valueC <> prevValueC Then
+      uniqueC += 1
+      prevValueC = valueC
+    EndIf
+    delta = (prevValue1 * 2 + prevValue2 - prevValue3 - prevValue4 * 2) / 6
+    powerB = Math.min(100 + delta, 100)
+    powerC = Math.min(100 - delta, 100)
+    MotorB.SetPower(powerB)
+    MotorC.SetPower(powerC)
+  EndWhile
+  LCD.Write(0, @lineNumber * 10, "P-cont: " + Math.Floor(count / 5) + " " + Math.Floor(uniqueB / 5) + " " + Math.Floor(uniqueC / 5))
+  @lineNumber += 1
+  LCD.Write(0, @lineNumber * 10, Math.Floor(unique1 / 5) + " " + Math.Floor(unique2 / 5) + " " + Math.Floor(unique3 / 5) + " " + Math.Floor(unique4 / 5))
+  @lineNumber += 1
+EndFunction
