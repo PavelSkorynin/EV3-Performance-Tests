@@ -61,6 +61,9 @@ motorC = Motor(Port.C)
 s2 = ColorSensor(Port.S2)
 s3 = ColorSensor(Port.S3)
 s4 = ColorSensor(Port.S4)
+motorB.dc(100)
+motorC.dc(100)
+wait(1000)
 timer.reset()
 count = 0
 uniqueB = 0
@@ -91,4 +94,4 @@ results = str(int(count / 5)) + " " + str(int(uniqueB / 5)) + " " + str(int(uniq
 ev3.screen.print(results)
 print("test3: " + results)
 
-wait(5000)
+wait(10000)
