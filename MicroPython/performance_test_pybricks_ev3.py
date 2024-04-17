@@ -16,8 +16,8 @@ ev3 = EV3Brick()
 timer = StopWatch()
 s1 = ColorSensor(Port.S1)
 
-ev3.screen.print('Performance test MicroPython')
-print("Performance test MicroPython")
+ev3.screen.print('MicroPython performance test')
+print("MicroPython performance test")
 
 # test idling
 timer.resume()
@@ -90,7 +90,7 @@ while timer.time() < 5000:
         prevValueC = valueC
         uniqueC += 1
 
-results = str(int(count / 5)) + " " + str(int(uniqueB / 5)) + " " + str(int(uniqueС / 5))
+results = str(int(count / 5)) + " " + str(int(uniqueB / 5)) + " " + str(int(uniqueC / 5))
 ev3.screen.print(results)
 print("test3: " + results)
 
